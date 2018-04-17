@@ -20,5 +20,6 @@ More setup that I want to record before I forget (TODO: Merge into setup):
   - stg/ProdEnvVars.sh example:
     - export GOOGLE_COMPUTE_REGION='imaregion'
     - export GOOGLE_PROJECT_ID='imaprojectname'
+    - export BUCKET_NAME='imabucketname'
     - export GCP_SERVICE_ACCOUNT_KEY='iamasecret'
   - change service account name in .boto files
