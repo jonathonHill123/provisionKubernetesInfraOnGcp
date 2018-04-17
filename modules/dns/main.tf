@@ -1,15 +1,14 @@
-variable "env" {}
-variable "prefix" {}
+variable "project" {}
 
-resource "google_compute_global_address" "k8buildpipeline-static-ip" {
-  name = "k8buildpipeline-${var.env}"
+resource "google_compute_global_address" "static-ip" {
+  name = "${var.project}"
 }
 
-resource "google_dns_record_set" "k8buildpipeline-record" {
-  name = "${var.prefix}k8buildpipeline.com."
+resource "google_dns_record_set" "record" {
+  name = "${var.project}.com."
   type = "A"
   ttl  = 300
 
-  managed_zone = "k8buildpipeline"
-  rrdatas = ["${google_compute_global_address.k8buildpipeline-static-ip.address}"]
+  managed_zone = "${var.project}"
+  rrdatas = ["${google_compute_global_address.static-ip.address}"]
 }

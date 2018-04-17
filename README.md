@@ -2,7 +2,7 @@
 
 This repo contains infrastructure as code (IaC) for k8BuildPipeline cloud resources dependencies like:
 
-  - GCP DNS record **k8buildpipeline.com** zone
+  - GCP DNS mananged zone
   - GCP static public IP address
   - GCP GKE Cluster
 

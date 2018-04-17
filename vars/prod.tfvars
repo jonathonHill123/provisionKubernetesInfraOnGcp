@@ -1,4 +1,3 @@
-env = "prod"
 dns_prefix = ""
-cluster_name = "prod-cluster"
 project = "k8buildpipelineprod"
+cluster_name = "dacluster"

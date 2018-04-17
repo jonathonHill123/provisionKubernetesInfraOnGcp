@@ -2,12 +2,14 @@ version: '3.2'
 
 services:
   buildpack-infra:
-    image: ${GOOGLE_PROJECT_ID}-infra-stg
+    image: ${GOOGLE_PROJECT_ID}-infra
     build: ../../
     environment:
       - ENV=stg
       - PROJECT=${GOOGLE_PROJECT_ID}
+      - SERVICE_ACCOUNT_NAME=${SERVICE_ACCOUNT_NAME}
       - REGION=${GOOGLE_COMPUTE_REGION}
+      - GCP_SERVICE_ACCOUNT_KEY=${GCP_SERVICE_ACCOUNT_KEY}
       - BOTO_CONFIG=/infra/environments/stg/.boto
     volumes:
       - ~/.config:/root/.config

@@ -2,13 +2,15 @@ version: '3.2'
 
 services:
   buildpack-infra:
-    image: ${GOOGLE_PROJECT_ID}-infra-prod
+    image: ${GOOGLE_PROJECT_ID}-infra
     build: ../../
     environment:
       - ENV=prod
+      - SERVICE_ACCOUNT_NAME=${SERVICE_ACCOUNT_NAME}
       - PROJECT=${GOOGLE_PROJECT_ID}
       - REGION=${GOOGLE_COMPUTE_REGION}
       - BOTO_CONFIG=/infra/environments/prod/.boto
+      - GCP_SERVICE_ACCOUNT_KEY=${GCP_SERVICE_ACCOUNT_KEY}
     volumes:
       - ~/.config:/root/.config
       - ~/.kube:/root/.kube

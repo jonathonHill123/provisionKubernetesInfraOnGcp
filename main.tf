@@ -1,12 +1,11 @@
 terraform {
   backend "gcs" {
-    bucket = "terraform-k8buildpipeline"
+    credentials = "/infra/gcp-key.json"
+    bucket = "terraform-PROJECT_PLACEHOLDER"
     # path = "provided at runtime"
   }
 }
 
-variable "env" {}
-variable "dns_prefix" {}
 variable "cluster_name" {}
 variable "project" {}
 
@@ -17,8 +16,7 @@ provider "google" {
 
 module "dns" {
   source = "modules/dns"
-  prefix = "${var.dns_prefix}"
-  env = "${var.env}"
+  project = "${var.project}"
 }
 
 module "cluster" {
